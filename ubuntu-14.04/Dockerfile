@@ -25,6 +25,7 @@ RUN apt-get install -y \
     zip \
     unzip \
     bzip2 \
+    imagemagick \
     graphicsmagick \
     wget \
     curl \
