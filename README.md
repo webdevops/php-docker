@@ -1,4 +1,4 @@
-# Prebuild PHP Docker Boilerplate images
+# Prebuilt PHP Docker Boilerplate images
 
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
