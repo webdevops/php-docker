@@ -12,15 +12,22 @@ ENV LC_ALL     en_US.UTF-8
 
 # Install apt-add-repository
 RUN apt-get update -q
-RUN apt-get install -y software-properties-common
+RUN apt-get install -y \
+    software-properties-common \
+    && apt-get clean -y
 
-# Install ansible (disabled because not available for 15.10 currently)
-# RUN apt-add-repository ppa:ansible/ansible
-# RUN apt-get update -q
-# RUN apt-get install -y ansible python-apt aptitude
+# Install ansible
+RUN apt-add-repository ppa:ansible/ansible
+RUN apt-get update -q
+RUN apt-get install -y \
+    ansible \
+    python-apt \
+    aptitude \
+    && apt-get clean -y
 
 # Install tools
 RUN apt-get install -y \
+    lsb-release \
     sudo \
     zip \
     unzip \
@@ -32,14 +39,16 @@ RUN apt-get install -y \
     net-tools \
     moreutils \
     dnsutils \
-    mysql-client
-    
+    mysql-client \
+    && apt-get clean -y
+
 # Install services
 RUN apt-get install -y \
     ssmtp \
     dnsmasq \
-    supervisor
-    
+    supervisor \
+    && apt-get clean -y
+
 # Install php (cli/fpm)
 RUN apt-get install -y \
     php5-cli \
@@ -59,7 +68,8 @@ RUN apt-get install -y \
     php5-ldap \
     php5-memcache \
     php5-memcached \
-    php5-imagick
+    php5-imagick \
+    && apt-get clean -y
 
 # Cleanup
 RUN apt-get clean -y
