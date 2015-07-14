@@ -12,65 +12,65 @@ ENV ANSIBLE_LIBRARY /opt/ansible/library
 # Install python
 RUN yum clean all
 RUN yum -y install \
-    epel-release \
-    PyYAML \
-    python-jinja2 \
-    python-httplib2 \
-    python-keyczar \
-    python-paramiko \
-    python-setuptools \
-    git \
-    python-pip \
+        epel-release \
+        PyYAML \
+        python-jinja2 \
+        python-httplib2 \
+        python-keyczar \
+        python-paramiko \
+        python-setuptools \
+        git \
+        python-pip \
     && yum clean
 
 RUN git clone --recursive http://github.com/ansible/ansible.git /opt/ansible
 
 # Install tools
 RUN yum -y install \
-    sudo \
-    zip \
-    unzip \
-    bzip2 \
-    ImageMagick \
-    wget \
-    curl \
-    net-tools \
-    moreutils \
-    dnsutils \
-    bind-utils \
-    mysql \
+        sudo \
+        zip \
+        unzip \
+        bzip2 \
+        ImageMagick \
+        wget \
+        curl \
+        net-tools \
+        moreutils \
+        dnsutils \
+        bind-utils \
+        mysql \
     && yum clean
     
 # Install services
 RUN yum -y install \
-    ssmtp \
-    dnsmasq \
-    supervisor \
+        ssmtp \
+        dnsmasq \
+        supervisor \
     && yum clean
     
 # Install php (cli/fpm)
 RUN yum -y install \
-    php-cli \
-    php-fpm \
-    php-json \
-    php-intl \
-    php-curl \
-    php-mysqlnd \
-    php-xdebug \
-    php-memcached \
-    php-mcrypt \
-    php-gd \
-    sqlite \
-    php-xmlrpc \
-    php-xsl \
-    geoip \
-    php-ldap \
-    php-memcache \
-    ImageMagick \
-    ImageMagick-devel \
-    ImageMagick-perl \
-    php-pear \
-    gcc \
+        php-cli \
+        php-fpm \
+        php-json \
+        php-intl \
+        php-curl \
+        php-mysqlnd \
+        php-xdebug \
+        php-memcached \
+        php-mcrypt \
+        php-gd \
+        sqlite \
+        php-xmlrpc \
+        php-xsl \
+        geoip \
+        php-ldap \
+        php-memcache \
+        ImageMagick \
+        ImageMagick-devel \
+        ImageMagick-perl \
+        php-pear \
+        gcc \
     && pecl install imagick
     && yum clean
 

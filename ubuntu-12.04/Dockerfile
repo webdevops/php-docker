@@ -11,69 +11,82 @@ ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
 
 # Install apt-add-repository
-RUN apt-get update -q
-RUN apt-get install -y \
-    python-software-properties \
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y \
+        python-software-properties \
+    && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
-    
+
 # Install ansible
 RUN apt-add-repository ppa:ansible/ansible
-RUN apt-get update -q
-RUN apt-get install -y \
-    ansible \
-    python-apt \
-    aptitude \
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y \
+        ansible \
+        python-apt \
+        aptitude \
+    && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
 
 # Install tools
-RUN apt-get install -y \
-    lsb-release \
-    sudo \
-    zip \
-    unzip \
-    bzip2 \
-    imagemagick \
-    graphicsmagick \
-    wget \
-    curl \
-    net-tools \
-    moreutils \
-    dnsutils \
-    mysql-client \
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y \
+        lsb-release \
+        sudo \
+        zip \
+        unzip \
+        bzip2 \
+        imagemagick \
+        graphicsmagick \
+        wget \
+        curl \
+        net-tools \
+        moreutils \
+        dnsutils \
+        mysql-client \
+    && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
-    
+
 # Install services
-RUN apt-get install -y \
-    ssmtp \
-    dnsmasq \
-    supervisor \
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y \
+        ssmtp \
+        dnsmasq \
+        supervisor \
+    && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
-    
-# Install php (cli/fpm)
-RUN apt-get install -y \
-    php5-cli \
-    php5-fpm \
-    php5-json \
-    php5-intl \
-    php5-curl \
-    php5-mysqlnd \
-    php5-xdebug \
-    php5-memcached \
-    php5-mcrypt \
-    php5-gd \
-    php5-sqlite \
-    php5-xmlrpc \
-    php5-xsl \
-    php5-geoip \
-    php5-ldap \
-    php5-memcache \
-    php5-memcached \
-    php5-imagick \
+
+# Install php
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y \
+        php5-cli \
+        php5-fpm \
+        php5-json \
+        php5-intl \
+        php5-curl \
+        php5-mysqlnd \
+        php5-xdebug \
+        php5-memcached \
+        php5-mcrypt \
+        php5-gd \
+        php5-sqlite \
+        php5-xmlrpc \
+        php5-xsl \
+        php5-geoip \
+        php5-ldap \
+        php5-memcache \
+        php5-memcached \
+        php5-imagick \
+    && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
 
 # Update
-RUN apt-get dist-upgrade -y
-
-# Cleanup
-RUN apt-get clean -y
-RUN apt-get autoclean -y
+RUN set -x \
+    && apt-get update \
+    && apt-get dist-upgrade -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean -y
