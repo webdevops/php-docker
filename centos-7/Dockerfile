@@ -70,8 +70,9 @@ RUN yum -y install \
         ImageMagick-devel \
         ImageMagick-perl \
         php-pear \
+        php-devel \
         gcc \
-    && pecl install imagick
+    && pecl install imagick \
     && yum clean all
 
 # Update
