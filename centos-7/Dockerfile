@@ -21,7 +21,7 @@ RUN yum -y install \
         python-setuptools \
         git \
         python-pip \
-    && yum clean
+    && yum clean all
 
 RUN git clone --recursive http://github.com/ansible/ansible.git /opt/ansible
 
@@ -39,14 +39,14 @@ RUN yum -y install \
         dnsutils \
         bind-utils \
         mysql \
-    && yum clean
+    && yum clean all
     
 # Install services
 RUN yum -y install \
         ssmtp \
         dnsmasq \
         supervisor \
-    && yum clean
+    && yum clean all
     
 # Install php (cli/fpm)
 RUN yum -y install \
@@ -72,7 +72,7 @@ RUN yum -y install \
         php-pear \
         gcc \
     && pecl install imagick
-    && yum clean
+    && yum clean all
 
 # Update
 RUN yum upgrade -y && yum clean all
