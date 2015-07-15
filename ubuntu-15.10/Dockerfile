@@ -18,9 +18,20 @@ RUN set -x \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
 
+
+# Install ansible
+#RUN set -x \
+#    && apt-add-repository ppa:ansible/ansible \
+#    && apt-get update \
+#    && apt-get install -y \
+#        ansible \
+#        python-apt \
+#        aptitude \
+#    && rm -rf /var/lib/apt/lists/* \
+#    && apt-get clean -y
+
 # Install ansible
 RUN set -x \
-    && apt-add-repository ppa:ansible/ansible \
     && apt-get update \
     && apt-get install -y \
         ansible \
