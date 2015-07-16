@@ -57,6 +57,7 @@ RUN set -x \
         moreutils \
         dnsutils \
         mysql-client \
+        openssh-client \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
 
