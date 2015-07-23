@@ -39,6 +39,7 @@ RUN yum -y install \
         dnsutils \
         bind-utils \
         mysql \
+        pygpgme \
     && yum clean all
     
 # Install services
