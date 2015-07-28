@@ -58,6 +58,7 @@ RUN set -x \
         dnsutils \
         mysql-client \
         openssh-client \
+        rsync \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
 

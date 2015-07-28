@@ -39,6 +39,7 @@ RUN yum -y install \
         dnsutils \
         bind-utils \
         mysql \
+        rsync \
         pygpgme \
     && yum clean all
     
