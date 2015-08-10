@@ -59,6 +59,7 @@ RUN set -x \
         mysql-client \
         openssh-client \
         rsync \
+        git \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
 

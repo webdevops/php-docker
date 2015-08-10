@@ -40,6 +40,7 @@ RUN yum -y install \
         bind-utils \
         mysql \
         rsync \
+        git \
         pygpgme \
     && yum clean all
     
