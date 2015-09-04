@@ -42,6 +42,7 @@ RUN yum -y install \
         rsync \
         git \
         pygpgme \
+        cronie \
     && yum clean all
     
 # Install services

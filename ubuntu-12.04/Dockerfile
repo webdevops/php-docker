@@ -49,6 +49,8 @@ RUN set -x \
         openssh-client \
         rsync \
         git \
+        cron \
+        anacron \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
 
