@@ -61,6 +61,7 @@ RUN set -x \
         ssmtp \
         dnsmasq \
         supervisor \
+        openssh-server \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y
 

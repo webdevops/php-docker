@@ -50,6 +50,7 @@ RUN yum -y install \
         ssmtp \
         dnsmasq \
         supervisor \
+        openssh-server \
     && yum clean all
     
 # Install php (cli/fpm)
